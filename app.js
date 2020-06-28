@@ -3,15 +3,16 @@ import Manager from "./src/Manager.js";
 
 console.log("Hello World");
 const manager = new Manager({
-  el: document.querySelector(".board"),
+  element: document.querySelector(".board"),
   notes: [
     {
-      title: "Note Title1",
-      description: "This is a test note1",
-    },
-    {
-      title: "Note Title1",
-      description: "This is a test note1",
+      title: "Write the Title Here",
+      description: "Here is where you write the body of the note ",
     },
   ],
 });
+
+const addNoteBtn = document.querySelector("#addNote");
+addNoteBtn.onclick = () => {
+  manager.addNote();
+};

@@ -28,12 +28,12 @@ button {
   font-family: Montserrat;
 }
 
-#add {
+#addNote {
   color: rgba(0, 0, 0, 0.26);
   float: right;
 }
 
-#add:hover {
+#addNote:hover {
   color: #f0c806;
 }
 
@@ -56,6 +56,7 @@ button {
 
 .note-header {
   padding: 10px 16px 0;
+  margin-bottom: 20px;
 }
 
 .note-title {
