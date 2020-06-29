@@ -18,7 +18,7 @@ export default class Note {
    */
   createNote() {
     let template = `        
-      <div class="note" style="background-color: {{color}};">
+      <div id="{{noteID}}" class="note" style="background-color: {{color}};">
         <div class="note-header">
             <button class="note-delete"><i class="fa fa-close"></i></button>
             
@@ -26,7 +26,7 @@ export default class Note {
               <button class="dropbtn">
               <i class="fas fa-palette"></i>
               </button>
-              <div id="{{noteID}}" class="dropdown-content">
+              <div id="{{ddmID}}" class="dropdown-content">
                 <a class="yellow">Yellow</a>
                 <a class="blue">Blue</a>
                 <a class="green">Green</a>
@@ -43,8 +43,9 @@ export default class Note {
     tmp_div.innerHTML = template
       .replace("{{title}}", this.title)
       .replace("{{description}}", this.description)
-      .replace("{{noteID}}", "note" + this.number)
-      .replace("{{color}}", this.color);
+      .replace("{{ddmID}}", "ddm" + this.number)
+      .replace("{{color}}", this.color)
+      .replace("{{noteID}}", "note" + this.number);
 
     this.element = tmp_div.children[0];
     this.attachEventListeners();
@@ -63,31 +64,35 @@ export default class Note {
     chngColour.onclick = () => {
       console.log("Attempting to change note colour");
 
-      this.manager.openDrpDwnMenu("#note" + this.number);
+      this.manager.openDrpDwnMenu("#ddm" + this.number);
     };
 
     const yellowBtn = this.element.querySelector(".yellow");
     yellowBtn.onclick = () => {
-      this.color = "#f0c806";
-      this.manager.showNotes();
+      // this.color = "#f0c806";
+      // this.manager.showNotes();
+      this.manager.changeNoteColour("#note" + this.number, "#f0c806");
     };
 
     const greenBtn = this.element.querySelector(".green");
     greenBtn.onclick = () => {
-      this.color = "#5cf006";
-      this.manager.showNotes();
+      // this.color = "#5cf006";
+      // this.manager.showNotes();
+      this.manager.changeNoteColour("#note" + this.number, "#5cf006");
     };
 
     const blueBtn = this.element.querySelector(".blue");
     blueBtn.onclick = () => {
-      this.color = "#06f0ec";
-      this.manager.showNotes();
+      // this.color = "#06f0ec";
+      // this.manager.showNotes();
+      this.manager.changeNoteColour("#note" + this.number, "#06f0ec");
     };
 
     const pinkBtn = this.element.querySelector(".pink");
     pinkBtn.onclick = () => {
-      this.color = "#f006e4";
-      this.manager.showNotes();
+      // this.color = "#f006e4";
+      // this.manager.showNotes();
+      this.manager.changeNoteColour("#note" + this.number, "#f006e4");
     };
   }
 }

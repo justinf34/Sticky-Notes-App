@@ -42,19 +42,24 @@ export default class Manager {
     this.showNotes();
   }
 
-  openDrpDwnMenu(noteID) {
-    console.log(noteID);
+  openDrpDwnMenu(ddmID) {
+    console.log(ddmID);
     this.closeDrpDwnMenu();
-    const click = this.element.querySelector(noteID);
+    const click = this.element.querySelector(ddmID);
     click.classList.toggle("show");
   }
 
   closeDrpDwnMenu() {
-    let openDD = this.element.getElementsByClassName("dropdown-content");
+    const openDD = this.element.getElementsByClassName("dropdown-content");
     for (let element of openDD) {
       if (element.classList.contains("show")) {
         element.classList.remove("show");
       }
     }
+  }
+
+  changeNoteColour(noteID, colour) {
+    const noteElement = this.element.querySelector(noteID);
+    noteElement.style.backgroundColor = colour;
   }
 }
