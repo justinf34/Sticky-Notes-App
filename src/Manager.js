@@ -9,7 +9,7 @@ export default class Manager {
     this.element = element; //<board>
     this.notes = notes.map((note) => new Note(note, this, notes.length));
 
-    this.editNoteContent = () => {};
+    this.editNote = () => {};
     this.showNotes();
   }
 
@@ -59,8 +59,11 @@ export default class Manager {
     }
   }
 
-  changeNoteColour(noteID, colour) {
+  changeNoteColour(note, noteID, colour) {
     const noteElement = this.element.querySelector(noteID);
+    const noteIndex = this.notes.indexOf(note);
+    console.log(noteIndex);
+    this.notes[noteIndex].color = colour;
     noteElement.style.backgroundColor = colour;
   }
 }

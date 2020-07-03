@@ -62,13 +62,13 @@ export default class Note {
     const title = this.element.querySelector(".note-title");
     title.oninput = (ev) => {
       this.title = ev.target.innerText;
-      this.manager.editNoteContent(this);
+      this.manager.editNote(this);
     };
 
     const description = this.element.querySelector(".note-description");
     description.oninput = (ev) => {
       this.description = ev.target.innerText;
-      this.manager.editNoteContent(this);
+      this.manager.editNote(this);
     };
 
     const chngColour = this.element.querySelector(".dropbtn");
@@ -82,28 +82,28 @@ export default class Note {
     yellowBtn.onclick = () => {
       // this.color = "#f0c806";
       // this.manager.showNotes();
-      this.manager.changeNoteColour("#note" + this.number, "#f0c806");
+      this.manager.changeNoteColour(this, "#note" + this.number, "#f0c806");
     };
 
     const greenBtn = this.element.querySelector(".green");
     greenBtn.onclick = () => {
       // this.color = "#5cf006";
       // this.manager.showNotes();
-      this.manager.changeNoteColour("#note" + this.number, "#5cf006");
+      this.manager.changeNoteColour(this, "#note" + this.number, "#5cf006");
     };
 
     const blueBtn = this.element.querySelector(".blue");
     blueBtn.onclick = () => {
       // this.color = "#06f0ec";
       // this.manager.showNotes();
-      this.manager.changeNoteColour("#note" + this.number, "#06f0ec");
+      this.manager.changeNoteColour(this, "#note" + this.number, "#06f0ec");
     };
 
     const pinkBtn = this.element.querySelector(".pink");
     pinkBtn.onclick = () => {
       // this.color = "#f006e4";
       // this.manager.showNotes();
-      this.manager.changeNoteColour("#note" + this.number, "#f006e4");
+      this.manager.changeNoteColour(this, "#note" + this.number, "#f006e4");
     };
   }
 }
