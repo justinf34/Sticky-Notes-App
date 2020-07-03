@@ -49,7 +49,6 @@ export default class Note {
 
     this.element = tmp_div.children[0];
     this.attachEventListeners();
-    // this.attachMenuEventListeners();
     return this.element;
   }
 
@@ -58,6 +57,18 @@ export default class Note {
     dltNote.onclick = () => {
       console.log("Attempting to delete note");
       this.manager.deleteNote(this);
+    };
+
+    const title = this.element.querySelector(".note-title");
+    title.oninput = (ev) => {
+      this.title = ev.target.innerText;
+      this.manager.editNoteContent(this);
+    };
+
+    const description = this.element.querySelector(".note-description");
+    description.oninput = (ev) => {
+      this.description = ev.target.innerText;
+      this.manager.editNoteContent(this);
     };
 
     const chngColour = this.element.querySelector(".dropbtn");

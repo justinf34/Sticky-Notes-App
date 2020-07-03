@@ -9,6 +9,7 @@ export default class Manager {
     this.element = element; //<board>
     this.notes = notes.map((note) => new Note(note, this, notes.length));
 
+    this.editNoteContent = () => {};
     this.showNotes();
   }
 
